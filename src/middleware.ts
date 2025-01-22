@@ -7,6 +7,12 @@ export async function middleware(request :NextRequest){
         getOrCreateDB(),
         getOrCreateStorage()
     ])
+    const { pathname } = request.nextUrl;
+
+    if (pathname.startsWith('/login') || pathname.startsWith('/register')) {
+        return NextResponse.next();
+    }
+    
     return NextResponse.next()
 }
 

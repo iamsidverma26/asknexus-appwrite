@@ -4,11 +4,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import HeroSection from "./components/HeroSection";
-import TopContributers from "./components/TopContributers";
-import LatestQuestions from "./components/LatestQuestions";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,11 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={cn(inter.className, "dark:bg-black dark:text-white")}>
-        <Header />
-        <HeroSection/>
-        <LatestQuestions/>
-        <TopContributers/>
-        <Footer/>
+        {children}
         </body>
 
     </html>
