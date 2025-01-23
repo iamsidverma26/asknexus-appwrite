@@ -6,7 +6,7 @@ import EditQues from "./EditQues";
 const Page = async ({
   params,
 }: {
-  params: { quesId: string; quesName: string };
+  params: Promise<{ quesId: string; quesName: string }>;
 }) => {
   const resolvedParams = await params;
   const { quesId } = resolvedParams;
