@@ -1,27 +1,18 @@
-// import { db, questionCollection } from "@/models/name";
-// import { databases } from "@/models/server/config";
-// import React from "react";
-// import EditQues from "./EditQues";
+import { db, questionCollection } from "@/models/name";
+import { databases } from "@/models/server/config";
+import React from "react";
+import EditQues from "./EditQues";
 
-// const Page = async ({
-//   params: rawParams,
-// }: {
-//   params: Promise<{ quesId: string; quesName: string }>;
-// }) => {
-//   const params = await rawParams;
-//   console.log(params.quesId);
-//   const { quesId } = params;
-//   console.log(quesId);
+interface PageProps {
+  params: { quesId: string; quesName: string };
+}
 
-//   const question = await databases.getDocument(db, questionCollection, quesId);
+const Page: React.FC<PageProps> = async ({ params }) => {
+  const { quesId } = await params;
 
-//   return <EditQues question={question} />;
-// };
+  const question = await databases.getDocument(db, questionCollection, quesId);
 
-// export default Page;
-
-const Page = () => {
-  return <div>Hello</div>;
+  return <EditQues question={question} />;
 };
 
 export default Page;
