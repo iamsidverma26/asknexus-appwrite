@@ -7,10 +7,10 @@ export default function Community() {
         Join
       </span>
       <p>
-        "Sign up" to become a part of our dynamic community. Gain access to a
-        vast pool of knowledge, connect with experts, and share your insights.
-        Whether you're here to ask questions or provide answers, joining us will
-        enhance your learning experience and help you stay updated with the
+        Sign up to become a part of our dynamic community. Gain access to a vast
+        pool of knowledge, connect with experts, and share your insights.
+        Whether you&apos;re here to ask questions or provide answers, joining us
+        will enhance your learning experience and help you stay updated with the
         latest discussions. Join now and start making meaningful contributions
         today!
       </p>
