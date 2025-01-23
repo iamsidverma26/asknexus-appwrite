@@ -211,7 +211,7 @@ const QuestionForm = ({ question }: { question?: Models.Document }) => {
             Minimum 20 characters.
           </small>
         </Label>
-        <div className="w-full max-w-3xl h-96 ">
+        <div className="w-full max-w-5xl h-96 ">
           <RTE
             value={formData.content}
             onChange={(value) =>

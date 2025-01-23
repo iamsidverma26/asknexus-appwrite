@@ -3,10 +3,16 @@ import { databases } from "@/models/server/config";
 import React from "react";
 import EditQues from "./EditQues";
 
-const Page = async ({ params }: { params: { quesId: string; quesName: string } }) => {
-    const question = await databases.getDocument(db, questionCollection, params.quesId);
+const Page = async ({
+  params: rawParams,
+}: {
+  params: { quesId: string; quesName: string };
+}) => {
+  const params = await rawParams;
+  const { quesId } = params;
+  const question = await databases.getDocument(db, questionCollection, quesId);
 
-    return <EditQues question={question} />;
+  return <EditQues question={question} />;
 };
 
 export default Page;
