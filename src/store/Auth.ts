@@ -58,6 +58,16 @@ export const useAuthStore = create<IAuthStore>()(
             async login(email:string , password:string){
 
                 try {
+                    const existingSession = await account.getSession("current").catch(() => null);
+                    
+                    if (existingSession) {
+                        console.log("Session already active:", existingSession);
+                        const user = await account.get<UserPrefs>();
+                        const { jwt } = await account.createJWT();
+                        set({ session: existingSession, user, jwt });
+                        return { success: true };
+                    }
+                    
                     const session = await account.createEmailPasswordSession(email,password)
                     const [user , {jwt}] = await Promise.all([
                         account.get<UserPrefs>(),
@@ -105,8 +115,11 @@ export const useAuthStore = create<IAuthStore>()(
                     console.log(error)
                 }
             },
+            
 
         })),
+
+        
         {
             name:"auth",
             onRehydrateStorage(){
